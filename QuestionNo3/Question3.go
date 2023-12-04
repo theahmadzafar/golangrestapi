@@ -4,13 +4,14 @@ import (
 	"context"
 	"fmt"
 	"os"
+	conns "run/question1/Connection"
 
 	"github.com/jackc/pgx/v5"
 )
 
-func main3() {
+func main() {
 	//Connection
-	conn, err := pgx.Connect(context.Background(), GetConString())
+	conn, err := pgx.Connect(context.Background(), conns.GetConString())
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)

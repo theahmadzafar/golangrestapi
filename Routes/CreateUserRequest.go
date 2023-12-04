@@ -1,4 +1,4 @@
-package main
+package routes
 
 import (
 	"context"
@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	conns "run/question1/Connection"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5"
@@ -21,7 +22,7 @@ func CreateNewUser(ctx *gin.Context) {
 
 	if len(m_name) > 0 && len(m_phone_number) > 0 {
 		//Connection
-		conn, err := pgx.Connect(context.Background(), GetConString())
+		conn, err := pgx.Connect(context.Background(), conns.GetConString())
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 			os.Exit(1)

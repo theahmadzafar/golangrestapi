@@ -16,7 +16,7 @@ var swaps_count int
 func main() {
 
 	dictionary := make(map[string]int)
-	s := "aajhjgjb"
+	s := "aab"
 
 	if len(s) > 500 && len(s) < 1 {
 
